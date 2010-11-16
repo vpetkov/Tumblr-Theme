@@ -6,16 +6,16 @@
         </title>
         <link rel="shortcut icon" href="{Favicon}" />
         <link rel="alternate" type="application/rss+xml" title="Blog" href="{RSS}"/>
-		<meta name="if:Show Sidebar" content="1"/>
-		<meta name="if:Show Home Link (for custom domains)" content="0"/>
-		<meta name="text:Home Link" content="mydomain.com"/>
-		<meta name="text:Analytics ID" content=""/>
-		<meta name="text:Reader ID" content=""/>
-		<meta name="text:Attribution" content="Written by..."/>
-		<meta name="text:Footer Text" content=""/>
+        <meta name="if:Show Sidebar" content="1"/>
+        <meta name="if:Show Home Link (for custom domains)" content="0"/>
+        <meta name="text:Home Link" content="mydomain.com"/>
+        <meta name="text:Analytics ID" content=""/>
+        <meta name="text:Reader ID" content=""/>
+        <meta name="text:Attribution" content="Written by..."/>
+        <meta name="text:Footer Text" content=""/>
         <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/0uutu06/Yawlbq4r5/tumblr.css" media="screen"/>
         <style type="text/css">{CustomCSS}</style>
-		{block:IfAnalyticsID}
+        {block:IfAnalyticsID}
         <script type="text/javascript">
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', '{text:Analytics ID}']);
@@ -29,19 +29,19 @@
 		{/block:IfAnalyticsID}
     </head>
     <body>
-		{block:IndexPage}
-		<div id="top">
-			<a href="/">Home</a>
-			<a href="/about">About</a>
-			{block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
-			<a href="/random">Random</a>
-			<a href="/archive">Archive</a>
-			<a href="{RSS}">Feed</a>
-			{block:HasPages}
-				{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}
-			{/block:HasPages}
+        {block:IndexPage}
+        <div id="top">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            {block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
+            <a href="/random">Random</a>
+            <a href="/archive">Archive</a>
+            <a href="{RSS}">Feed</a>
+            {block:HasPages}
+                {block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}
+            {/block:HasPages}
 		</div>
-		{/block:IndexPage}
+        {/block:IndexPage}
         <div id="body">
             {block:IndexPage}
             <a href="/"><h1>{Title}</h1></a>
@@ -170,7 +170,7 @@
                 </div>
                 {/block:IndexPage}
                 {block:IfShowSidebar}
-                <!--/content-->
+            <!--/content-->
             </div>
             <div id="footer">
                 {block:PermalinkPage}
@@ -178,7 +178,7 @@
                 {/block:PermalinkPage}
                 {block:IfFooterText}<p>{text:Footer Text}{/block:IfFooterText}
             </div>
-            <!--/body-->
+        <!--/body-->
         </div>
     </body>
 </html>
