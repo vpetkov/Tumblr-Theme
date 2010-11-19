@@ -32,7 +32,6 @@
         {/block:IfAnalyticsID}
     </head>
     <body>
-        {block:IndexPage}
         <div id="top">
             <a href="/">Home</a>
             <a href="/about">About</a>
@@ -40,11 +39,8 @@
             <a href="/random">Random</a>
             <a href="/archive">Archive</a>
             <a href="{RSS}">Feed</a>
-            {block:HasPages}
-                {block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}
-            {/block:HasPages}
+            {block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}
         </div>
-        {/block:IndexPage}
         <div id="body">
             {block:IndexPage}
             <a href="/"><h1>{Title}</h1></a>
@@ -53,11 +49,11 @@
             {/block:IfShowDescription}
             {/block:IndexPage}
             {block:PermalinkPage}
-            {block:IfShowHomeLinkfor customdomains}
+            {block:IfShowHomeLinkforcustomdomains}
             <div id="homelink">
                 <a href="/">&larr;{block:IfHomeLink}{text:Home Link}{/block:IfHomeLink}</a>
             </div>
-            {/block:IfShowHomeLinkfor customdomains}
+            {/block:IfShowHomeLinkforcustomdomains}
             {block:PostTitle}<h1>{PostTitle}</h1>{/block:PostTitle}
             {/block:PermalinkPage}
             <div id="content">
@@ -79,6 +75,11 @@
                         {block:Title}<a href="{Permalink}"><h2>{Title}</h2></a>{/block:Title}
                         {/block:IndexPage}
                         {Body}
+                        {block:PermalinkPage}
+                        <div id="footer">
+                            {text:Attribution}
+                        </div>
+                        {/block:PermalinkPage}
                     </div>
                     {/block:Text}
                     {block:Quote}
@@ -99,7 +100,7 @@
                     {/block:Link}
                     {block:Photo}
                     <div class="post photo">
-                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                        <img src="{PhotoURL-400}" alt="{PhotoAlt}"/>
                         {block:Caption}
                         <div class="caption">
                             {Caption}
@@ -109,7 +110,7 @@
                     {/block:Photo}
                     {block:Photoset}
                     <div class="post photoset">
-                        {Photoset-500}
+                        {Photoset-400}
                         {block:Caption}
                         <div class="caption">
                             {Caption}
@@ -136,7 +137,7 @@
                     {/block:Chat}
                     {block:Video}
                         <div class="post video">
-                            {Video-500}
+                            {Video-400}
                             {block:Caption}
                             <div class="caption">
                                 {Caption}
@@ -177,11 +178,6 @@
                     {/block:IndexPage}
                     {block:PermalinkPage}
                         {block:IfShowNotes}
-                            <div id="search">
-                                <form action="/search" method="get">
-                                    <input type="text" name="q" value="{SearchQuery}" placeholder="Search"/>
-                                </form>
-                            </div>
                             {block:PostNotes}{PostNotes}{/block:PostNotes}
                         {/block:IfShowNotes}
                     {/block:PermalinkPage}
@@ -190,9 +186,6 @@
             <!--/content-->
             </div>
             <div id="footer">
-                {block:PermalinkPage}
-                    {block:IfAttribution}{text:Attribution}{/block:Attribution}
-                {/block:PermalinkPage}
                 {block:IfFooterText}<p>{text:Footer Text}</p>{/block:IfFooterText}
             </div>
         <!--/body-->
