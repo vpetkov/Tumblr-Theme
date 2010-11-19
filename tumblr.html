@@ -13,6 +13,7 @@
         <meta name="text:Analytics ID" content=""/>
         <meta name="text:Reader ID" content=""/>
         <meta name="text:Attribution" content="Written by..."/>
+        <meta name="text:Sidebar Text" content=""/>
         <meta name="text:Footer Text" content=""/>
         <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/0uutu06/Yawlbq4r5/tumblr.css" media="screen"/>
         <style type="text/css">{CustomCSS}</style>
@@ -166,6 +167,7 @@
                             <input type="text" name="q" value="{SearchQuery}" placeholder="Search"/>
                         </form>
                     </div>
+                    {block:IfSidebarText}<p>{text:Sidebar Text}</p>{/block:IfSidebarText}
                     {block:IfReaderID}
                     <h3>Google Reader Shared Items:</h3>
                     <script type="text/javascript" src="https://www.google.com/reader/ui/publisher-en.js"></script>
@@ -180,7 +182,7 @@
                 {block:PermalinkPage}
                     {block:IfAttribution}{text:Attribution}{/block:Attribution}
                 {/block:PermalinkPage}
-                {block:IfFooterText}<p>{text:Footer Text}{/block:IfFooterText}
+                {block:IfFooterText}<p>{text:Footer Text}</p>{/block:IfFooterText}
             </div>
         <!--/body-->
         </div>
