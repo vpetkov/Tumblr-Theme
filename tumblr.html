@@ -6,16 +6,18 @@
         </title>
         <link rel="shortcut icon" href="{Favicon}" />
         <link rel="alternate" type="application/rss+xml" title="Blog" href="{RSS}"/>
-		<meta name="if:Show Sidebar" content="1"/>
-		<meta name="if:Show Home Link (for custom domains)" content="0"/>
-		<meta name="text:Home Link" content="mydomain.com"/>
-		<meta name="text:Analytics ID" content=""/>
-		<meta name="text:Reader ID" content=""/>
-		<meta name="text:Attribution" content="Written by..."/>
-		<meta name="text:Footer Text" content=""/>
+        <meta name="if:Show Description" content="0"/>
+        <meta name="if:Show Sidebar" content="1"/>
+        <meta name="if:Show Home Link (for custom domains)" content="0"/>
+        <meta name="text:Home Link" content="mydomain.com"/>
+        <meta name="text:Analytics ID" content=""/>
+        <meta name="text:Reader ID" content=""/>
+        <meta name="text:Attribution" content="Written by..."/>
+        <meta name="text:Sidebar Text" content=""/>
+        <meta name="text:Footer Text" content=""/>
         <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/0uutu06/Yawlbq4r5/tumblr.css" media="screen"/>
         <style type="text/css">{CustomCSS}</style>
-		{block:IfAnalyticsID}
+        {block:IfAnalyticsID}
         <script type="text/javascript">
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', '{text:Analytics ID}']);
@@ -26,25 +28,28 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
         </script>
-		{/block:IfAnalyticsID}
+        {/block:IfAnalyticsID}
     </head>
     <body>
-		{block:IndexPage}
-		<div id="top">
-			<a href="/">Home</a>
-			<a href="/about">About</a>
-			{block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
-			<a href="/random">Random</a>
-			<a href="/archive">Archive</a>
-			<a href="{RSS}">Feed</a>
-			{block:HasPages}
-				{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}
-			{/block:HasPages}
-		</div>
-		{/block:IndexPage}
+        {block:IndexPage}
+        <div id="top">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            {block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
+            <a href="/random">Random</a>
+            <a href="/archive">Archive</a>
+            <a href="{RSS}">Feed</a>
+            {block:HasPages}
+                {block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}
+            {/block:HasPages}
+        </div>
+        {/block:IndexPage}
         <div id="body">
             {block:IndexPage}
             <a href="/"><h1>{Title}</h1></a>
+            {block:IfShowDescription}
+                {block:Description}<p id="description">{Description}</p>{/block:Description}
+            {/block:IfShowDescription}
             {/block:IndexPage}
             {block:PermalinkPage}
             {block:IfShowHomeLinkfor customdomains}
@@ -77,8 +82,8 @@
                     {/block:Text}
                     {block:Quote}
                     <div class="post quote">
-                        {block:Source}<h2>{Source}</h2>{/block:Source}
-                        <blockquote>{Quote}</blockquote>
+                        {block:Source}<h2>{Quote}</h2>{/block:Source}
+                        <p>{Source}</p>
                     </div>
                     {/block:Quote}
                     {block:Link}
@@ -162,6 +167,7 @@
                             <input type="text" name="q" value="{SearchQuery}" placeholder="Search"/>
                         </form>
                     </div>
+                    {block:IfSidebarText}<p>{text:Sidebar Text}</p>{/block:IfSidebarText}
                     {block:IfReaderID}
                     <h3>Google Reader Shared Items:</h3>
                     <script type="text/javascript" src="https://www.google.com/reader/ui/publisher-en.js"></script>
@@ -170,15 +176,15 @@
                 </div>
                 {/block:IndexPage}
                 {block:IfShowSidebar}
-                <!--/content-->
+            <!--/content-->
             </div>
             <div id="footer">
                 {block:PermalinkPage}
                     {block:IfAttribution}{text:Attribution}{/block:Attribution}
                 {/block:PermalinkPage}
-                {block:IfFooterText}<p>{text:Footer Text}{/block:IfFooterText}
+                {block:IfFooterText}<p>{text:Footer Text}</p>{/block:IfFooterText}
             </div>
-            <!--/body-->
+        <!--/body-->
         </div>
     </body>
 </html>
