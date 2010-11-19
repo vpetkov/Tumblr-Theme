@@ -8,6 +8,7 @@
         <link rel="alternate" type="application/rss+xml" title="Blog" href="{RSS}"/>
         <meta name="if:Show Description" content="0"/>
         <meta name="if:Show Sidebar" content="1"/>
+        <meta name="if:Show Notes" content="0"/>
         <meta name="if:Show Home Link (for custom domains)" content="0"/>
         <meta name="text:Home Link" content="mydomain.com"/>
         <meta name="text:Analytics ID" content=""/>
@@ -160,21 +161,31 @@
                     {block:NextPage}<a class="next" style="float: right;" href="{NextPage}">Older</a>{/block:NextPage}
                 </div>
                 {block:IfShowSidebar}
-                {block:IndexPage}
                 <div id="side">
-                    <div id="search">
-                        <form action="/search" method="get">
-                            <input type="text" name="q" value="{SearchQuery}" placeholder="Search"/>
-                        </form>
-                    </div>
-                    {block:IfSidebarText}<p>{text:Sidebar Text}</p>{/block:IfSidebarText}
-                    {block:IfReaderID}
-                    <h3>Google Reader Shared Items:</h3>
-                    <script type="text/javascript" src="https://www.google.com/reader/ui/publisher-en.js"></script>
-                    <script type="text/javascript" src="https://www.google.com/reader/public/javascript/user/{text:Reader ID}/state/com.google/broadcast?n=30&callback=GRC_p(%7Bc%3A%22-%22%2Ct%3A%22%22%2Cs%3A%22false%22%2Cn%3A%22false%22%2Cb%3A%22false%22%7D)%3Bnew%20GRC"></script>
-                    {/block:IfReaderID}
+                    {block:IndexPage}
+                        <div id="search">
+                            <form action="/search" method="get">
+                                <input type="text" name="q" value="{SearchQuery}" placeholder="Search"/>
+                            </form>
+                        </div>
+                        {block:IfSidebarText}<p>{text:Sidebar Text}</p>{/block:IfSidebarText}
+                        {block:IfReaderID}
+                        <h3>Google Reader Shared Items:</h3>
+                        <script type="text/javascript" src="https://www.google.com/reader/ui/publisher-en.js"></script>
+                        <script type="text/javascript" src="https://www.google.com/reader/public/javascript/user/{text:Reader ID}/state/com.google/broadcast?n=30&callback=GRC_p(%7Bc%3A%22-%22%2Ct%3A%22%22%2Cs%3A%22false%22%2Cn%3A%22false%22%2Cb%3A%22false%22%7D)%3Bnew%20GRC"></script>
+                        {/block:IfReaderID}
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                        {block:IfShowNotes}
+                            <div id="search">
+                                <form action="/search" method="get">
+                                    <input type="text" name="q" value="{SearchQuery}" placeholder="Search"/>
+                                </form>
+                            </div>
+                            {block:PostNotes}{PostNotes}{/block:PostNotes}
+                        {/block:IfShowNotes}
+                    {/block:PermalinkPage}
                 </div>
-                {/block:IndexPage}
                 {block:IfShowSidebar}
             <!--/content-->
             </div>
