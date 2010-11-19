@@ -75,7 +75,8 @@ blockquote {
     font-weight: bold;
     color: #aaa;
     cursor: default;
-    margin-top: 5px;
+    margin-top: -20px;
+    margin-bottom: 20px;
 }
 
 #posts {
