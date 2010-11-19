@@ -5,4 +5,5 @@ attribution only for regualr posts - done
 move footer upwards - done
 add optional description under the main title - done
 add optional sidebar text - done
+add notes in sidebar on post page - done
 set hight lower than the font's height and add overflow:hiden;
