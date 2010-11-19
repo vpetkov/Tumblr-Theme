@@ -171,3 +171,23 @@ blockquote {
     padding: 0 0 0 15px;
 }
 
+.notes {
+    padding: 20px;
+}
+
+.notes a:hover {
+    text-decoration:underline;
+}
+
+.notes img {
+    display:none;
+}
+
+ol.notes {
+    list-style-type: none;
+}
+
+.note {
+    padding-top: 10px;
+}
+
