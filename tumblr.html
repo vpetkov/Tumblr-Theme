@@ -7,23 +7,10 @@
         {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
-		<meta name="text:Analytics ID" content="UA-28530645-1"/>
 		<meta name="text:Footer Text" content=""/>
         <meta name="if:Search" content="0"/>
         <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/0uutu06/JlNlc4y9m/tumblr.css" media="screen"/>
         <style type="text/css">{CustomCSS}</style>
-        {block:IfAnalyticsID}
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', '{text:Analytics ID}']);
-            _gaq.push(['_trackPageview']);
-            (function() {
-             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-             })();
-        </script>
-        {/block:IfAnalyticsID}
     </head>
     <body>
         <div id="body">
