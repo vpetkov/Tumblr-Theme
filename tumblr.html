@@ -114,20 +114,6 @@
                 color: #333;
             }
 
-            #side {
-                font-size: 0.8em;
-                text-align: left;
-                line-height: 1.5em;
-                position: absolute;
-                right: 0;
-                top: 0;
-                width: 200px;
-            }
-
-            #side a {
-                font-weight: normal;
-            }
-
             #nav {
                 margin-bottom: 100px;
                 width: 425px;
@@ -283,15 +269,6 @@
                     {block:PreviousPage}<a class="previous" href="{PreviousPage}">Newer</a>{/block:PreviousPage}
                     {block:NextPage}<a class="next" style="float: right;" href="{NextPage}">Older</a>{/block:NextPage}
                 </div>
-                {block:IndexPage}
-                <div id="side">
-                    <ul>
-                        <li><a href="/inspiration">inspiration</a></li>
-                        <li><a href="/photography">photography</a></li>
-                        <li><a href="/about">about</a></li>
-                    </ul>
-                </div>
-                {/block:IndexPage}
                 <!--/content-->
             </div>
             <!--/body-->
