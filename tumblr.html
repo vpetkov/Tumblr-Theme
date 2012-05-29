@@ -152,8 +152,8 @@
                 {block:PostTitle}<a href="/"><h1>{PostTitle}</h1></a>{/block:PostTitle}
             {/block:PermalinkPage}
             <div id="content">
+                {block:Posts}
                 <div id="posts">
-                    {block:Posts}
                     {block:Text}
                     <div class="post text">
                         {block:IndexPage}{block:Title}<a href="{Permalink}"><h2>{Title}</h2></a>{/block:Title}{/block:IndexPage}
@@ -234,8 +234,8 @@
                         {/block:Caption}
                     </div>
                     {/block:Audio}
-                    {/block:Posts}
                 </div>
+                {/block:Posts}
                 <div id="nav">
                     {block:PreviousPage}<a class="previous" href="{PreviousPage}">Newer</a>{/block:PreviousPage}
                     {block:NextPage}<a class="next" style="float: right;" href="{NextPage}">Older</a>{/block:NextPage}
