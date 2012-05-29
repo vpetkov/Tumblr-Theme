@@ -4,7 +4,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=600"/>
         <title>{block:PostTitle}{PostTitle} |{/block:PostTitle} {Title}</title>
-        {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
 		<meta name="text:Footer Text" content=""/>
@@ -219,11 +218,6 @@
                     {block:NoSearchResults}<h2>Search for "{SearchQuery}" returned no results.</h2>{/block:NoSearchResults}
                 {/block:SearchPage}
                 <div id="posts">
-                    {block:IndexPage}
-                    <div class="post description">
-                        {Description}
-                    </div>
-                    {/block:IndexPage}
                     {block:Posts}
                     {block:SearchPage}
                     <div class="post text">
