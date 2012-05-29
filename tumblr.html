@@ -6,7 +6,6 @@
         <title>{block:PostTitle}{PostTitle} |{/block:PostTitle} {Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
-		<meta name="text:Footer Text" content=""/>
         <style type="text/css">
             * {
                 margin: 0;
@@ -130,12 +129,8 @@
                 font-weight: normal;
             }
 
-            #footer {
-                font-size: 0.8em;
-                margin: 100px 0 30px;
-            }
-
             #nav {
+                margin-bottom: 100px;
                 width: 425px;
             }
 
@@ -299,9 +294,6 @@
                 </div>
                 {/block:IndexPage}
                 <!--/content-->
-            </div>
-            <div id="footer">
-                {block:IfFooterText}<p>{text:Footer Text}</p>{/block:IfFooterText}
             </div>
             <!--/body-->
         </div>
