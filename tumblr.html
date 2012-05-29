@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
 		<meta name="text:Footer Text" content=""/>
-        <meta name="if:Search" content="0"/>
         <style type="text/css">
             * {
                 margin: 0;
@@ -136,18 +135,6 @@
                 margin: 100px 0 30px;
             }
 
-            #search {
-                border: 1px solid #ccc;
-            }
-
-            #search input {
-                background: transperant;
-                border: none;
-                color: #444;
-                outline: none;
-                width: 100%;
-            }
-
             #nav {
                 width: 425px;
             }
@@ -214,18 +201,8 @@
                 {block:PostTitle}<a href="/"><h1>{PostTitle}</h1></a>{/block:PostTitle}
             {/block:PermalinkPage}
             <div id="content">
-                {block:SearchPage}
-                    {block:NoSearchResults}<h2>Search for "{SearchQuery}" returned no results.</h2>{/block:NoSearchResults}
-                {/block:SearchPage}
                 <div id="posts">
                     {block:Posts}
-                    {block:SearchPage}
-                    <div class="post text">
-                        <div id="homelink">
-                            Search for "{SearchQuery}" returned {SearchResultCount} results:
-                        </div>
-                    </div>
-                    {/block:SearchPage}
                     {block:Text}
                     <div class="post text">
                         {block:IndexPage}{block:Title}<a href="{Permalink}"><h2>{Title}</h2></a>{/block:Title}{/block:IndexPage}
@@ -314,13 +291,6 @@
                 </div>
                 {block:IndexPage}
                 <div id="side">
-                    {block:IfSearch}
-                    <div id="search">
-                        <form action="/search" method="get">
-                            <input type="text" name="q" value="{SearchQuery}" placeholder="Search"/>
-                        </form>
-                    </div>
-                    {/block:IfSearch}
                     <ul>
                         <li><a href="/inspiration">inspiration</a></li>
                         <li><a href="/photography">photography</a></li>
