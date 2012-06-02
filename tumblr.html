@@ -134,6 +134,10 @@
                 border-bottom: 1px solid #aaa;
             }
 
+            .post h2 a {
+                text-decoration: none;
+                border-bottom: none;
+            }
             .post ul {
                 list-style-type: decimal;
                 margin: 0 0 0 10px;
@@ -154,6 +158,12 @@
             <div id="content">
                 {block:Posts}
                 <div id="posts">
+                    {block:ContentSource}
+                    <!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
+                    width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+                    {/block:SourceLogo}
+                    {block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+                    {/block:ContentSource}
                     {block:Text}
                     <div class="post text">
                         {block:IndexPage}{block:Title}<a href="{Permalink}"><h2>{Title}</h2></a>{/block:Title}{/block:IndexPage}
@@ -183,18 +193,18 @@
                     {/block:Link}
                     {block:Photo}
                     <div class="post photo">
+                        {block:IndexPage}
+                            {block:Caption}<h2><a href="{Permalink}">{Caption}</a></h2>{/block:Caption}
+                        {/block:IndexPage}
                         <a href="{LinkURL}" style="border-bottom:none;"><img src="{PhotoURL-400}" alt="{PhotoAlt}"/></a>
-                        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
                     </div>
                     {/block:Photo}
                     {block:Photoset}
                     <div class="post photoset">
+                        {block:IndexPage}
+                            {block:Caption}<h2><a href="{Permalink}">{Caption}</a></h2>{/block:Caption}
+                        {/block:IndexPage}
                         {Photoset-400}
-                        {block:Caption}
-                        <div class="caption">
-                            {Caption}
-                        </div>
-                        {/block:Caption}
                     </div>
                     {/block:Photoset}
                     {block:Chat}
