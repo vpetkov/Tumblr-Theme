@@ -2,7 +2,7 @@
 <html lang="bg-Bg">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="viewport" content="width=600"/>
+        <meta name="viewport" content="width=device-width, height=device-height">
         <title>{block:PostTitle}{PostTitle} |{/block:PostTitle} {Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <style type="text/css">
@@ -88,26 +88,18 @@
                 position: relative;
             }
 
-            #top {
-                font-size:0.7em;
+            #side {
+                font-size: 0.8em;
                 text-align: left;
+                line-height: 1.5em;
                 position: absolute;
-                top: 4px;
-                left: 20px;
+                right: 0;
+                top: 0;
+                width: 200px;
             }
 
-            #top a {
-                padding-right: 10px;
-                color: #ccc;
-            }
-
-            #top a:hover {
-                color: #333;
-            }
-
-            #nav {
-                margin-bottom: 100px;
-                width: 500px;
+            #side a {
+                font-weight: normal;
             }
 
             .next {
@@ -138,16 +130,26 @@
                 text-decoration: none;
                 border-bottom: none;
             }
+
             .post ul {
-                list-style-type: decimal;
+                list-style-type: none;
                 margin: 0 0 0 10px;
                 padding: 0 0 0 15px;
+            }
+
+            .photo a, a:hover {
+                border-bottom: none !important;
+            }
+
+            .uptitle {
+              text-transform: uppercase;
             }
 
             {CustomCSS}
         </style>
     </head>
     <body>
+        <script type="text/javascript" src="http://codysherman.com/tools/infinite-scrolling/code"></script>
         <div id="body">
             {block:IndexPage}
             <a href="/"><h1>{Title}</h1></a>
@@ -155,25 +157,23 @@
             {block:PermalinkPage}
                 {block:PostTitle}<a href="/"><h1>{PostTitle}</h1></a>{/block:PostTitle}
             {/block:PermalinkPage}
-            <div id="content">
+            <div id="content" class="autopagerize_page_element">
                 {block:Posts}
+                <!-- {SourceLink}{ReblogParentURL}-->
+                {block:PermalinkPage}
+                {/block:PermalinkPage}
                 <div id="posts">
-                    {block:ContentSource}
-                    <!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
-                    width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
-                    {/block:SourceLogo}
-                    {block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
-                    {/block:ContentSource}
                     {block:Text}
                     <div class="post text">
-                        {block:IndexPage}{block:Title}<a href="{Permalink}"><h2>{Title}</h2></a>{/block:Title}{/block:IndexPage}
+                        {block:IndexPage}{block:Title}<a class="uptitle" href="{Permalink}"><h2>{Title}</h2></a>{/block:Title}{/block:IndexPage}
                         {Body}
                     </div>
                     {/block:Text}
                     {block:Quote}
                     <div class="post quote">
-                        {block:Source}<h2>{Quote}</h2>{/block:Source}
-                        <p>{Source}</p>
+                        {block:IndexPage}<a href="{Permalink}"><h2>{Quote}</h2></a>{/block:IndexPage}
+                        {block:PermalinkPage}<a href="/"><h2>{Quote}</h2></a>{/block:PermalinkPage}
+                        {block:Source}<p>{Source}</p>{/block:Source}
                     </div>
                     {/block:Quote}
                     {block:Link}
@@ -193,10 +193,9 @@
                     {/block:Link}
                     {block:Photo}
                     <div class="post photo">
-                        {block:IndexPage}
-                            {block:Caption}<h2><a href="{Permalink}">{Caption}</a></h2>{/block:Caption}
-                        {/block:IndexPage}
-                        <a href="{LinkURL}" style="border-bottom:none;"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></a>
+                        {block:PermalinkPage}<img src="{PhotoURL-500}"/>{/block:PermalinkPage}
+                        {block:IndexPage}<a class="photo" href="{Permalink}"><img src="{PhotoURL-500}"/></a>{/block:IndexPage}
+                        {block:Caption}{Caption}{/block:Caption}
                     </div>
                     {/block:Photo}
                     {block:Photoset}
@@ -246,9 +245,17 @@
                     {/block:Audio}
                 </div>
                 {/block:Posts}
-                <div id="nav">
-                    {block:PreviousPage}<a class="previous" href="{PreviousPage}">Newer</a>{/block:PreviousPage}
-                    {block:NextPage}<a class="next" style="float: right;" href="{NextPage}">Older</a>{/block:NextPage}
+                <div id="side" class="post sidebar">
+                    <ul>
+                        {block:IndexPage}
+                        <li><a href="http://tumblr.com/follow/vpetkov">Follow my blog on Tumblr</a></li>
+                        <li>or <a href="http://vpetkov.com/about">read about me</a>.</li>
+                        {/block:IndexPage}
+                        {block:PermalinkPage}
+                        <li><a href="http://tumblr.com/follow/vpetkov">Follow this blog on Tumblr</a></li>
+                        <li>or <a href="http://vpetkov.com/about">read about the author</a>.</li>
+                        {/block:PermalinkPage}
+                    </ul>
                 </div>
                 <!--/content-->
             </div>
@@ -256,4 +263,3 @@
         </div>
     </body>
 </html>
-
